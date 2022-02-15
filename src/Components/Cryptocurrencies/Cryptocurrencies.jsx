@@ -24,7 +24,7 @@ const Cryptocurrencies = ({ simplified }) => {
 
     const renderedCryptos = cryptos?.map(crypto =>
         <Col xs={24} sm={12} lg={6} className="crypto-card" key={crypto.uuid}>
-            <Link to={`/crypto/${crypto.id}`}>
+            <Link to={`/crypto/${crypto.uuid}`}>
                 <Card
                     title={`${crypto.rank}. ${crypto.name}`}
                     extra={<img alt='' className='crypto-image' src={crypto.iconUrl} />}
