@@ -1,6 +1,17 @@
 import React from 'react';
-import { Line, Chart } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto'
+import { Line } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+
+
 import { Col, Row, Typography } from 'antd';
 
 const { Title } = Typography;
@@ -28,8 +39,17 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         }]
     };
 
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Tooltip,
+        Legend
+    )
 
     return (
+
         <>
             <Row className="chart-header">
                 <Title level={2} className="chart-title">{coinName} Price Chart </Title>
