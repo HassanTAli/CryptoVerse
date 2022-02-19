@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import { useGetCryptosQuery } from '../../services/cryptoApi'
+import Loader from '../Loader';
 
 const Cryptocurrencies = ({ simplified }) => {
     const count = simplified ? 10 : 100
@@ -19,7 +20,7 @@ const Cryptocurrencies = ({ simplified }) => {
     }, [cryptoList, searchTerm]);
 
     if (isFetching) {
-        return 'Loading...'
+        return <Loader />
     }
 
     const renderedCryptos = cryptos?.map(crypto =>
